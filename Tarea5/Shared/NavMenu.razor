@@ -1,0 +1,71 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Tarea5</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/resultado1" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Resultado 1
+            </NavLink>
+        </div>        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/resultado2" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Resultado 2
+            </NavLink>
+        </div>        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/resultado3" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Resultado 3
+            </NavLink>
+        </div>        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/resultado4" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Resultado 4
+            </NavLink>
+        </div>        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/resultado5" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Resultado 5
+            </NavLink>
+        </div>        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/resultado6" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Resultado 6
+            </NavLink>
+        </div>        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/resultado7" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Resultado 7
+            </NavLink>
+        </div>        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/resultado8" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Resultado 8
+            </NavLink>
+        </div>        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/resultado9" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Resultado 9
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/resultado10" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Resultado 10
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
