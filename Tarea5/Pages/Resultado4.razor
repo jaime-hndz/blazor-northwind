@@ -1,8 +1,21 @@
 ﻿@page "/resultado4"
+@using Tarea5.Data
 
 <h3>Resultado 4</h3>
 <p>La cantidad de productos que existen por categoría. Nombre de categoría y cantidad de productos.</p>
 
+<DataGrid Datos="@data" />
 @code {
 
+    int num = 0;
+
+    List<Dictionary<string, object>> data = new List<Dictionary<string, object>>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        String sql = "SELECT category,COUNT(*) FROM products GROUP BY category;";
+        data = Connection.Consulta(sql);
+
+        num = data.Count;   
+    }
 }

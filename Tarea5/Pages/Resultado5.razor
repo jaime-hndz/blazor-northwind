@@ -1,8 +1,25 @@
 ﻿@page "/resultado5"
+@using Tarea5.Data
 
 <h3>Resultado 5</h3>
 <p>Las unidades vendidas de cada producto, mostradas de mayor a menor: producto y cantidad de unidades vendidas.</p>
 
+<DataGrid Datos="@data" />
 @code {
 
+    int num = 0;
+
+    List<Dictionary<string, object>> data = new List<Dictionary<string, object>>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        String sql = @"SELECT p.product_name,SUM(o.quantity) as 'unidades vendidas' FROM `order_details` o
+            INNER JOIN products p 
+            ON p.id = o.product_id
+            GROUP BY p.product_name
+            ORDER BY 'unidades vendidas'";
+        data = Connection.Consulta(sql);
+
+        num = data.Count;   
+    }
 }

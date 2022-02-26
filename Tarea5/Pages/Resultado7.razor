@@ -1,8 +1,22 @@
 ﻿@page "/resultado7"
+@using Tarea5.Data
 
 <h3>Resultado1</h3>
 <p>El total de ventas vendidas en el mes de agosto del 2012</p>
 
+<DataGrid Datos="@data" />
 @code {
 
+    int num = 0;
+
+    List<Dictionary<string, object>> data = new List<Dictionary<string, object>>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        String sql = @"SELECT COUNT(creation_date) FROM purchase_orders
+                WHERE creation_date > '2012-10-1' AND creation_date < '2012-10-31'";
+        data = Connection.Consulta(sql);
+
+        num = data.Count;   
+    }
 }

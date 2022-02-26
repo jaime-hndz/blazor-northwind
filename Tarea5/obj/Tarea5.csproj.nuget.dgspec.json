@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\K3D\\Documents\\Apps\\Tarea5\\Tarea5\\Tarea5.csproj": {}
+    "C:\\Users\\J\\Desktop\\Nueva carpeta (4)\\blazor-northwind\\Tarea5\\Tarea5.csproj": {}
   },
   "projects": {
-    "C:\\Users\\K3D\\Documents\\Apps\\Tarea5\\Tarea5\\Tarea5.csproj": {
+    "C:\\Users\\J\\Desktop\\Nueva carpeta (4)\\blazor-northwind\\Tarea5\\Tarea5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\K3D\\Documents\\Apps\\Tarea5\\Tarea5\\Tarea5.csproj",
+        "projectUniqueName": "C:\\Users\\J\\Desktop\\Nueva carpeta (4)\\blazor-northwind\\Tarea5\\Tarea5.csproj",
         "projectName": "Tarea5",
-        "projectPath": "C:\\Users\\K3D\\Documents\\Apps\\Tarea5\\Tarea5\\Tarea5.csproj",
-        "packagesPath": "C:\\Users\\K3D\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\K3D\\Documents\\Apps\\Tarea5\\Tarea5\\obj\\",
+        "projectPath": "C:\\Users\\J\\Desktop\\Nueva carpeta (4)\\blazor-northwind\\Tarea5\\Tarea5.csproj",
+        "packagesPath": "C:\\Users\\J\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\J\\Desktop\\Nueva carpeta (4)\\blazor-northwind\\Tarea5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\K3D\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\J\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.28, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

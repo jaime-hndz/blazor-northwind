@@ -1,0 +1,34 @@
+﻿@if (Datos.Count > 0)
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                @{
+                    Dictionary<string, object> modelo = Datos[0];
+                    foreach (var item in modelo)
+                    {
+                        <th>@item.Key</th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Datos)
+            {
+                <tr>
+                    @foreach (var item2 in item)
+                    {
+                        <td>@item2.Value</td>
+                    }
+                </tr>
+                
+            }
+        </tbody>
+    </table>
+}
+@Datos.Count registros.
+
+@code {
+    [Parameter]
+    public List<Dictionary<string,object>> ? Datos { get; set; }
+}

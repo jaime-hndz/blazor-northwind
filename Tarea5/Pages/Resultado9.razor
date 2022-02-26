@@ -1,8 +1,23 @@
 ﻿@page "/resultado9"
+@using Tarea5.Data
 
 <h3>Resultado 9</h3>
 <p>Mostrar los transportistas y la cantidad de envios que han hecho.</p>
 
+<DataGrid Datos="@data" />
 @code {
 
+    int num = 0;
+
+    List<Dictionary<string, object>> data = new List<Dictionary<string, object>>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        String sql = @"SELECT s.company, COUNT(o.id) FROM orders o 
+INNER JOIN shippers s ON s.id = o.shipper_id
+GROUP BY s.id";
+        data = Connection.Consulta(sql);
+
+        num = data.Count;   
+    }
 }

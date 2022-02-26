@@ -1,8 +1,26 @@
 ﻿@page "/resultado6"
+@using Tarea5.Data
 
 <h3>Resultado 6</h3>
 <p>Los 10 clientes que mas han comprado, mostrando el codigo, nombre y monto total vendido. </p>
 
+<DataGrid Datos="@data" />
 @code {
 
+    int num = 0;
+
+    List<Dictionary<string, object>> data = new List<Dictionary<string, object>>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        String sql = @"SELECT c.id,c.first_name,c.last_name, SUM(od.quantity) as 'ordenes hechas' FROM `order_details` od
+        INNER JOIN orders o ON o.id = od.order_id
+        INNER JOIN customers c ON c.id = o.customer_id
+        GROUP BY c.id
+        ORDER BY SUM(od.quantity)DESC
+        LIMIT 10";
+        data = Connection.Consulta(sql);
+
+        num = data.Count;   
+    }
 }

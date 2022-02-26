@@ -1,8 +1,21 @@
 ﻿@page "/resultado3"
+@using Tarea5.Data
 
 <h3>Resultado 3</h3>
 <p>La cantidad de clientes que existen por pais. </p>
 
+<DataGrid Datos="@data" />
 @code {
 
+    int num = 0;
+
+    List<Dictionary<string, object>> data = new List<Dictionary<string, object>>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        String sql = "SELECT COUNT(*) FROM customers GROUP BY country_region;";
+        data = Connection.Consulta(sql);
+
+        num = data.Count;   
+    }
 }

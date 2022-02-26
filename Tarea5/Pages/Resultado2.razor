@@ -1,8 +1,21 @@
 ﻿@page "/resultado2"
+@using Tarea5.Data
 
 <h3>Resultado 2</h3>
 <p>Los 5 productos mas caros</p>
 
+<DataGrid Datos="@data" />
 @code {
 
+    int num = 0;
+
+    List<Dictionary<string, object>> data = new List<Dictionary<string, object>>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        String sql = "SELECT product_name FROM `products` ORDER BY list_price DESC LIMIT 5;";
+        data = Connection.Consulta(sql);
+
+        num = data.Count;   
+    }
 }

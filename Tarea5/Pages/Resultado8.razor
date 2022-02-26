@@ -1,8 +1,24 @@
 ﻿@page "/resultado8"
+@using Tarea5.Data
 
 <h3>Resultado 8</h3>
 <p>Mostrar los suplidores y la cantidad de productos que suplen. Mostrarlos de mayor a menor, mostrando el codigo de suplidor, nombre y cantidad de productos que este suple.</p>
 
+<DataGrid Datos="@data" />
 @code {
 
+    int num = 0;
+
+    List<Dictionary<string, object>> data = new List<Dictionary<string, object>>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        String sql = @"SELECT s.id,s.company, SUM(p.id)  FROM suppliers s
+INNER JOIN products p ON p.supplier_ids = s.id
+GROUP BY s.id
+ORDER BY SUM(p.id) DESC";
+        data = Connection.Consulta(sql);
+
+        num = data.Count;   
+    }
 }
